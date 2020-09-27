@@ -25,6 +25,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: web
+      - name: Deploy
         run: |
-          ./test.sh
+          ./deploy.sh
