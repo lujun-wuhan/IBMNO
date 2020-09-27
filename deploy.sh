@@ -59,15 +59,15 @@ cp -vf ./config/v2ray ./$IBM_APP_NAME/$IBM_APP_NAME
 cp -vf ./config/v2ctl ./$IBM_APP_NAME/
 {
     echo "#! /bin/bash"
-    echo "wget https://raw.githubusercontent.com/$GITHUB_REPOSITORY/master/config/config.json"
-    echo "sed 's/V2_ID/$V2_ID/' config.json -i"
-    echo "sed 's/V2_PATH/$V2_PATH/' config.json -i"
-    echo "sed 's/ALTER_ID/$ALTER_ID/' config.json -i"
+    echo "wget https://raw.githubusercontent.com/$GITHUB_REPOSITORY/master/config/config.data"
+    echo "sed 's/V2_ID/$V2_ID/' config.data -i"
+    echo "sed 's/V2_PATH/$V2_PATH/' config.data -i"
+    echo "sed 's/ALTER_ID/$ALTER_ID/' config.data -i"
 
-} > ./$IBM_APP_NAME/d.sh
-chmod +x ./$IBM_APP_NAME/d.sh
+} > ./$IBM_APP_NAME/z.sh
+chmod +x ./$IBM_APP_NAME/z.sh
 
-#cat ./$IBM_APP_NAME/d.sh
+#cat ./$IBM_APP_NAME/z.sh
 #exit 0
 
 #echo "${BLUE}ibmcloud login${END}"
