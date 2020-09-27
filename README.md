@@ -7,6 +7,14 @@ fork [https://github.com/CCChieh/IBMYes](https://github.com/CCChieh/IBMYes)
 * 使用actions, 每周自动更新`v2ray`, 部署到 `IBM Cloud Foundray`.
 
 
+IBM_ACCOUNT
+IBM_APP_NAME
+IBM_MEMORY
+V2_ID
+V2_PATH
+ALTER_ID
+
+
 # 配置流程
 
 ### 配置IBM Cloud Fonudray
