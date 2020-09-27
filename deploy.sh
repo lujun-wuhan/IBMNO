@@ -32,9 +32,9 @@ V2_PATH=${V2_PATH:-"path"}
 ALTER_ID=${ALTER_ID:-"1"}
 mkdir -p $IBM_APP_NAME
 
-if [ ! -f "./config/v2ray" ]; then
+if [ ! -f "./configApp/v2ray" ]; then
     echo "${BLUE}download v2ray${END}"
-    pushd ./config
+    pushd ./configApp
     #new_ver=$(curl -s https://github.com/v2fly/v2ray-core/releases/latest | grep -Po "(\d+\.){2}\d+")
     new_ver=4.28.2
     wget -q -Ov2ray.zip https://github.com/v2fly/v2ray-core/releases/download/v${new_ver}/v2ray-linux-64.zip
@@ -50,16 +50,16 @@ if [ ! -f "./config/v2ray" ]; then
 fi
 
 # cloudfoundry config
-cp -rvf ./config/manifest.yml ./$IBM_APP_NAME/
+cp -rvf ./configApp/manifest.yml ./$IBM_APP_NAME/
 sed "s/IBM_APP_NAME/${IBM_APP_NAME}/" ./$IBM_APP_NAME/manifest.yml -i
 sed "s/IBM_MEMORY/${IBM_MEMORY}/" ./$IBM_APP_NAME/manifest.yml -i
 
-# v2ray config
-cp -vf ./config/v2ray ./$IBM_APP_NAME/$IBM_APP_NAME
-cp -vf ./config/v2ctl ./$IBM_APP_NAME/
+# v2ray configApp
+cp -vf ./configApp/v2ray ./$IBM_APP_NAME/$IBM_APP_NAME
+cp -vf ./configApp/v2ctl ./$IBM_APP_NAME/
 {
     echo "#! /bin/bash"
-    echo "wget https://raw.githubusercontent.com/$GITHUB_REPOSITORY/master/config/config.data"
+    echo "wget https://raw.githubusercontent.com/$GITHUB_REPOSITORY/master/configApp/config.data"
     echo "sed 's/V2_ID/$V2_ID/' config.data -i"
     echo "sed 's/V2_PATH/$V2_PATH/' config.data -i"
     echo "sed 's/ALTER_ID/$ALTER_ID/' config.data -i"
